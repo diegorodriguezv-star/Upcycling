@@ -16,15 +16,63 @@
             background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
             padding: 20px;
             line-height: 1.4;
+            min-height: 100vh;
         }
 
-        .infografia {
+        .pagina {
+            display: none;
             max-width: 900px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
+        }
+
+        #portada {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+            min-height: 80vh;
+        }
+
+        .boton-nav {
+            background: linear-gradient(135deg, #4CAF50, #2196F3);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .boton-nav:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .boton-iniciar {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .boton-iniciar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .header {
@@ -372,6 +420,21 @@
             margin-bottom: 10px;
         }
 
+        .menu-botones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .navegacion-seccion {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.2em;
@@ -390,13 +453,50 @@
             .input-line {
                 min-width: 200px;
             }
+
+            .menu-botones {
+                padding: 20px;
+            }
+
+            .boton-nav {
+                width: 80%;
+                margin: 15px 0;
+            }
+
+            .navegacion-seccion {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="infografia">
+    <!-- Portada -->
+    <div id="portada" class="pagina">
         <div class="header">
             <h1>¡UPCYCLING!</h1>
+            <p>Convierte la basura en tesoros increíbles</p>
+        </div>
+        <button class="boton-iniciar" onclick="mostrarPagina('menu')">Iniciar</button>
+    </div>
+
+    <!-- Menú Principal -->
+    <div id="menu" class="pagina">
+        <div class="header">
+            <h1>Menú Principal</h1>
+            <p>Selecciona una opción para explorar</p>
+        </div>
+        <div class="menu-botones">
+            <button class="boton-nav" onclick="mostrarPagina('upcycling')">Upcycling</button>
+            <button class="boton-nav" onclick="mostrarPagina('taller')">Taller</button>
+            <button class="boton-nav" onclick="mostrarPagina('proyecto')">Proyecto</button>
+        </div>
+    </div>
+
+    <!-- Sección Upcycling -->
+    <div id="upcycling" class="pagina">
+        <div class="header">
+            <h1>Upcycling</h1>
             <p>Convierte la basura en tesoros increíbles</p>
         </div>
 
@@ -492,46 +592,34 @@
                 </div>
             </div>
 
-            <div class="seccion proyecto">
-                <h2><span>🚀</span> Pasos para tu Proyecto de Upcycling</h2>
-                <div class="pasos-proyecto">
-                    <div class="paso">
-                        <h3>🔍 Observa y busca</h3>
-                        <p>Mira a tu alrededor: ¿qué objetos ya no usas? ¿Qué está roto o viejo en casa?</p>
-                    </div>
-                    <div class="paso">
-                        <h3>💭 Imagina las posibilidades</h3>
-                        <p>Piensa: ¿En qué podrías convertir ese objeto? ¡Deja volar tu imaginación!</p>
-                    </div>
-                    <div class="paso">
-                        <h3>📝 Haz tu plan</h3>
-                        <p>Dibuja tu idea, lista los materiales que necesitas y los pasos a seguir</p>
-                    </div>
-                    <div class="paso">
-                        <h3>🛠️ Consigue herramientas</h3>
-                        <p>Reúne tijeras, pegamento, pintura, pinceles y todo lo que necesites (¡pide ayuda a un adulto!)</p>
-                    </div>
-                    <div class="paso">
-                        <h3>🎨 ¡Manos a la obra!</h3>
-                        <p>Comienza tu transformación. Tómate tu tiempo y diviértete creando</p>
-                    </div>
-                    <div class="paso">
-                        <h3>📸 Comparte tu creación</h3>
-                        <p>Toma fotos del antes y después. ¡Muestra tu proyecto a familia y amigos!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NUEVA SECCIÓN DE VIDEO -->
             <div class="seccion video">
-                <h2><span>🎥</span> Video </h2>
+                <h2><span>🎥</span> Video</h2>
                 <p>Mira este video que desarrolla ideas creativas de upcycling:</p>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/ogqx2n3cHU8" title="Video inspirador de Upcycling" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
+        </div>
 
-            <!-- SECCIÓN DEL TALLER -->
+        <div class="navegacion-seccion">
+            <button class="boton-nav" onclick="mostrarPagina('menu')">Volver al Menú</button>
+            <button class="boton-nav" onclick="mostrarPagina('taller')">Siguiente: Taller</button>
+        </div>
+
+        <div class="footer">
+            <h3>Upcycling - 5º</h3>
+            <p>Colegio Colsubsidio Ciudadela</p>
+        </div>
+    </div>
+
+    <!-- Sección Taller -->
+    <div id="taller" class="pagina">
+        <div class="header">
+            <h1>Taller de Upcycling</h1>
+            <p>¡Practica y aprende!</p>
+        </div>
+
+        <div class="content">
             <div class="seccion taller">
                 <h2><span>📝</span> ¡Ahora Practiquemos! - Taller</h2>
                 
@@ -563,60 +651,13 @@
                         ¿Para qué serviría?: <span class="input-line"></span>
                     </div>
                 </div>
-
-                <div class="actividad-taller">
-                    <h3><span>🚀</span> DISEÑA TU PROYECTO DE UPCYCLING</h3>
-                    <p>Diseña tu propio proyecto siguiendo los pasos aprendidos:</p>
-
-                    <div class="paso-taller">
-                        <h4>🔍 PASO 1: Observa y busca</h4>
-                        <strong>¿Qué objeto elegiste para transformar?</strong><br>
-                        <span class="input-line"></span><br><br>
-                        <strong>¿Por qué ya no se usa o está en desuso?</strong><br>
-                        <span class="input-line"></span>
-                    </div>
-
-                    <div class="paso-taller">
-                        <h4>💭 PASO 2: Imagina las posibilidades</h4>
-                        <strong>¿En qué lo vas a convertir?</strong><br>
-                        <span class="input-line"></span>
-                    </div>
-
-                    <div class="paso-taller">
-                        <h4>📝 PASO 3: Haz tu plan</h4>
-                        <strong>Dibuja tu idea aquí:</strong>
-                        <div class="dibujo-box">
-                            [ESPACIO PARA DIBUJO]
-                        </div>
-
-                        <div class="lista-materiales">
-                            <strong>Materiales que necesitas:</strong><br><br>
-                            • <span class="input-line"></span><br><br>
-                            • <span class="input-line"></span><br><br>
-                            • <span class="input-line"></span><br><br>
-                            • <span class="input-line"></span>
-                        </div>
-                    </div>
-
-                    <div class="paso-taller">
-                        <h4>🛠️ PASO 4: Lista los pasos</h4>
-                        <strong>Escribe los pasos para realizar tu transformación:</strong><br><br>
-                        1. <span class="input-line"></span><br><br>
-                        2. <span class="input-line"></span><br><br>
-                        3. <span class="input-line"></span><br><br>
-                        4. <span class="input-line"></span><br><br>
-                        5. <span class="input-line"></span>
-                    </div>
-
-                    <div class="paso-taller">
-                        <h4>🌟 PASO 5: Reflexiona</h4>
-                        <strong>¿Cómo tu proyecto ayuda al medio ambiente?</strong><br>
-                        <span class="input-line"></span><br><br>
-                        <strong>¿Qué habilidades vas a desarrollar haciendo este proyecto?</strong><br>
-                        <span class="input-line"></span>
-                    </div>
-                </div>
             </div>
+        </div>
+
+        <div class="navegacion-seccion">
+            <button class="boton-nav" onclick="mostrarPagina('upcycling')">Anterior: Upcycling</button>
+            <button class="boton-nav" onclick="mostrarPagina('menu')">Volver al Menú</button>
+            <button class="boton-nav" onclick="mostrarPagina('proyecto')">Siguiente: Proyecto</button>
         </div>
 
         <div class="footer">
@@ -624,5 +665,135 @@
             <p>Colegio Colsubsidio Ciudadela</p>
         </div>
     </div>
+
+    <!-- Sección Proyecto -->
+    <div id="proyecto" class="pagina">
+        <div class="header">
+            <h1>Proyecto de Upcycling</h1>
+            <p>Desarrolla tu propio proyecto</p>
+        </div>
+
+        <div class="content">
+            <div class="seccion proyecto">
+                <h2><span>🚀</span> Pasos para tu Proyecto de Upcycling</h2>
+                <div class="pasos-proyecto">
+                    <div class="paso">
+                        <h3>🔍 Observa y busca</h3>
+                        <p>Mira a tu alrededor: ¿qué objetos ya no usas? ¿Qué está roto o viejo en casa?</p>
+                    </div>
+                    <div class="paso">
+                        <h3>💭 Imagina las posibilidades</h3>
+                        <p>Piensa: ¿En qué podrías convertir ese objeto? ¡Deja volar tu imaginación!</p>
+                    </div>
+                    <div class="paso">
+                        <h3>📝 Haz tu plan</h3>
+                        <p>Dibuja tu idea, lista los materiales que necesitas y los pasos a seguir</p>
+                    </div>
+                    <div class="paso">
+                        <h3>🛠️ Consigue herramientas</h3>
+                        <p>Reúne tijeras, pegamento, pintura, pinceles y todo lo que necesites (¡pide ayuda a un adulto!)</p>
+                    </div>
+                    <div class="paso">
+                        <h3>🎨 ¡Manos a la obra!</h3>
+                        <p>Comienza tu transformación. Tómate tu tiempo y diviértete creando</p>
+                    </div>
+                    <div class="paso">
+                        <h3>📸 Comparte tu creación</h3>
+                        <p>Toma fotos del antes y después. ¡Muestra tu proyecto a familia y amigos!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seccion taller">
+                <h2><span>🚀</span> DISEÑA TU PROYECTO DE UPCYCLING</h2>
+                <p>Diseña tu propio proyecto siguiendo los pasos aprendidos:</p>
+
+                <div class="paso-taller">
+                    <h4>🔍 PASO 1: Observa y busca</h4>
+                    <strong>¿Qué objeto elegiste para transformar?</strong><br>
+                    <span class="input-line"></span><br><br>
+                    <strong>¿Por qué ya no se usa o está en desuso?</strong><br>
+                    <span class="input-line"></span>
+                </div>
+
+                <div class="paso-taller">
+                    <h4>💭 PASO 2: Imagina las posibilidades</h4>
+                    <strong>¿En qué lo vas a convertir?</strong><br>
+                    <span class="input-line"></span>
+                </div>
+
+                <div class="paso-taller">
+                    <h4>📝 PASO 3: Haz tu plan</h4>
+                    <strong>Dibuja tu idea aquí:</strong>
+                    <div class="dibujo-box">
+                        [ESPACIO PARA DIBUJO]
+                    </div>
+
+                    <div class="lista-materiales">
+                        <strong>Materiales que necesitas:</strong><br><br>
+                        • <span class="input-line"></span><br><br>
+                        • <span class="input-line"></span><br><br>
+                        • <span class="input-line"></span><br><br>
+                        • <span class="input-line"></span>
+                    </div>
+                </div>
+
+                <div class="paso-taller">
+                    <h4>🛠️ PASO 4: Lista los pasos</h4>
+                    <strong>Escribe los pasos para realizar tu transformación:</strong><br><br>
+                    1. <span class="input-line"></span><br><br>
+                    2. <span class="input-line"></span><br><br>
+                    3. <span class="input-line"></span><br><br>
+                    4. <span class="input-line"></span><br><br>
+                    5. <span class="input-line"></span>
+                </div>
+
+                <div class="paso-taller">
+                    <h4>🌟 PASO 5: Reflexiona</h4>
+                    <strong>¿Cómo tu proyecto ayuda al medio ambiente?</strong><br>
+                    <span class="input-line"></span><br><br>
+                    <strong>¿Qué habilidades vas a desarrollar haciendo este proyecto?</strong><br>
+                    <span class="input-line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="navegacion-seccion">
+            <button class="boton-nav" onclick="mostrarPagina('taller')">Anterior: Taller</button>
+            <button class="boton-nav" onclick="mostrarPagina('menu')">Volver al Menú</button>
+        </div>
+
+        <div class="footer">
+            <h3>Upcycling - 5º</h3>
+            <p>Colegio Colsubsidio Ciudadela</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar la página seleccionada y ocultar las demás
+        function mostrarPagina(id) {
+            // Ocultar todas las páginas
+            document.querySelectorAll('.pagina').forEach(pagina => {
+                pagina.style.display = 'none';
+            });
+            
+            // Mostrar la página solicitada
+            document.getElementById(id).style.display = 'block';
+            
+            // Si es el menú, ajustar la visualización
+            if (id === 'menu') {
+                document.getElementById('menu').style.display = 'flex';
+                document.getElementById('menu').style.flexDirection = 'column';
+            }
+            
+            // Scroll hacia arriba
+            window.scrollTo(0, 0);
+        }
+
+        // Inicializar mostrando solo la portada
+        window.onload = function() {
+            mostrarPagina('portada');
+        };
+    </script>
 </body>
 </html>
